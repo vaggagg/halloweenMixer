@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -39,5 +41,24 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+    $('body').keyup(function(e){
+  switch(e.code ){
+    case 'KeyQ':
+    case 'KeyW':
+    case 'KeyE':
+    case 'KeyA':
+    case 'KeyS':
+    case 'KeyD':
+    case 'KeyZ':
+    case 'KeyX':
+    case 'KeyC':
+      $("#"+e.code.substring(3)).click();
+      break;
+
+  }
+
+});
+</script>
   </body>
 </html>
