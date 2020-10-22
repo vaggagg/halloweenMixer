@@ -22,7 +22,7 @@ state = {
 
                 }
   songEnded=(event)=>{
-     this.props.pauseSound(this.props.Name)
+     this.props.pauseSound(this.props.Name) 
     // event.target.currentTime=0
    //document.getElementById("#"+this.props.Name+" .fa-pause").removeClass("fa-pause").addClass("fa-play")
      this.setState({
