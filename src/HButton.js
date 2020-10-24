@@ -10,21 +10,20 @@ state = {
      isPause:!this.state.isPause
     });
      if(!this.state.isPause){
-     this.props.playSound(this.props.Name)
-    // document.getElementById("#"+this.props.Name+" .clip")[0].play()
-     this.props.displayName(this.props.Name)
+     document.getElementById(this.props.id).play();
+     this.props.changeName(this.props.Name);
      }
      else{
-       this.props.pauseSound(this.props.Name)
-    //  document.getElementById("#"+this.props.Name+" .clip")[0].pause()
-      //document.getElementById("#"+this.props.Name+" .clip")[0].currentTime=0;
+      document.getElementById(this.props.id).pause();
+      document.getElementById(this.props.id).currentTime=0;
     }
 
                 }
   songEnded=(event)=>{
-     this.props.pauseSound(this.props.Name) 
-    // event.target.currentTime=0
-   //document.getElementById("#"+this.props.Name+" .fa-pause").removeClass("fa-pause").addClass("fa-play")
+    event.target.currentTime=0
+    let tile=document.getElementById(this.props.Name);
+    tile.classList.remove("fa-pause");
+    tile.classList.add("fa-play");
      this.setState({
      isPause:!this.state.isPause
     });
