@@ -11,9 +11,10 @@ state = {
     });
      if(!this.state.isPause){
      document.getElementById(this.props.id).play();
-     this.props.changeName(this.props.Name);
+     this.props.addSound(this.props.Name);
      }
      else{
+      this.props.removeSound(this.props.Name)
       document.getElementById(this.props.id).pause();
       document.getElementById(this.props.id).currentTime=0;
     }
@@ -21,9 +22,7 @@ state = {
                 }
   songEnded=(event)=>{
     event.target.currentTime=0
-    let tile=document.getElementById(this.props.Name);
-    tile.classList.remove("fa-pause");
-    tile.classList.add("fa-play");
+    this.props.removeSound(this.props.Name)
      this.setState({
      isPause:!this.state.isPause
     });
@@ -33,7 +32,7 @@ state = {
        var faIcon=<i className="fa fa-play"></i>
              if(this.state.isPause){
                faIcon=<i className="fa fa-pause"></i>}
-       return <div className="col drum-pad" id={this.props.Name} onClick={this.pauseOrPlay}>{this.props.id}<div>{faIcon}</div><audio id={this.props.id} className="clip" onEnded={this.songEnded} src={this.props.sound}>{this.props.id} </audio></div>
+       return <div className="col drum-pad" id={this.props.Name} onClick={this.pauseOrPlay}>{this.props.Name}<div>{faIcon}</div><audio id={this.props.id} className="clip" onEnded={this.songEnded} src={this.props.sound}>{this.props.id} </audio></div>
      }
 }
 export default HButton;
